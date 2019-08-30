@@ -1,5 +1,4 @@
 { pkgs ? import ./nix/nixpkgs.nix {}
-, devBuild ? true
 }:
 
 let
@@ -12,11 +11,11 @@ let
   '';
 in
   pkgs.mkShell {
-    buildInputs = [ 
+    buildInputs = [
+      pkgs.vim
       pkgs.pkg-config
       pkgs.openssl
-      (if devBuild then devRust else prodRust)
-    ] ++ pkgs.stdenv.lib.optionals devBuild [
+      prodRust
       pkgs.rustfmt
       pkgs.direnv
       pkgs.carnix

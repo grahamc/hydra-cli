@@ -16,7 +16,8 @@ log = "0.4.6"
 prettytable-rs = "0.8.0"
 mockito = "0.20.0"
 
+
 [dependencies.rand]
 version = "0.7.0"
-features = ["getrandom"]
+features = ["std", "getrandom", "getrandom_package"]
 
